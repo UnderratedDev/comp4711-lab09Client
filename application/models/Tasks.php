@@ -61,6 +61,10 @@ class Tasks extends XML_Model {
             $this->reindex();
         }
 
+        protected function store()
+        {
+        }
+
 }
 
 // return -1, 0, or 1 of $a's category name is earlier, equal to, or later than $b's
