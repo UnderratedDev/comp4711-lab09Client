@@ -37,6 +37,8 @@ class Mtce extends Application {
     // Extract & handle a page of items, defaulting to the beginning
     public function page  ($num = 1) {
         $records = $this->tasks->all (); // get all the tasks
+        
+        // var_dump ($records);
         $tasks   = array ();
 
         // use a foreach loop, because the record indicies may not be sequential
@@ -165,9 +167,9 @@ class Mtce extends Application {
     {
         $dto = $this->session->userdata('task');
         $task = $this->tasks->get($dto->id);
-        $this->tasks->delete($task->id);
+        $this->tasks->delete(array("id" => $task->id));
         $this->session->unset_userdata('task');
-        redirect('/mtce');
+        // redirect('/mtce');
     }
 
 }

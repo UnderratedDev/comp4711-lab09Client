@@ -107,13 +107,15 @@ class Curl {
             $params = http_build_query($params, NULL, '&');
         }
 
+        $this->option(CURLOPT_POSTFIELDS, http_build_query($params));
+
         // Add in the specific options provided
         $this->options($options);
 
         $this->http_method('post');
 
         $this->option(CURLOPT_POST, TRUE);
-        $this->option(CURLOPT_POSTFIELDS, $params);
+        // $this->option(CURLOPT_POSTFIELDS, $params);
     }
 
     public function put($params = array(), $options = array()) {
@@ -122,14 +124,17 @@ class Curl {
             $params = http_build_query($params, NULL, '&');
         }
 
+        // $params = array_values((array)$params);
+        
         // Add in the specific options provided
         $this->options($options);
 
         $this->http_method('put');
-        $this->option(CURLOPT_POSTFIELDS, $params);
+        $this->option(CURLOPT_POSTFIELDS, http_build_query($params));
 
         // Override method, I think this overrides $_POST with PUT data but... we'll see eh?
-        $this->option(CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: PUT'));
+        // $this->option(CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: PUT'));
+        $this->option(CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));        
     }
 
     public function delete($params, $options = array()) {
@@ -142,8 +147,11 @@ class Curl {
         $this->options($options);
 
         $this->http_method('delete');
+        $this->option(CURLOPT_POSTFIELDS, http_build_query($params));
+        
+        $this->option(CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 
-        $this->option(CURLOPT_POSTFIELDS, $params);
+        // $this->option(CURLOPT_POSTFIELDS, $params);
     }
 
     public function set_cookies($params = array()) {
