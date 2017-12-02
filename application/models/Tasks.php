@@ -86,8 +86,7 @@ class Tasks extends XML_Model {
         function delete($key, $key2 = null) {
                 $this->rest->initialize(array('server' => REST_SERVER));
                 $this->rest->option(CURLOPT_PORT, REST_PORT);
-                $retrieved = $this->rest->delete('/job/', $key);
-                var_dump ($retrieved);
+                $retrieved = $this->rest->delete('job/' . $key);
                 $this->load(); // because the "database" might have changed
         }
 

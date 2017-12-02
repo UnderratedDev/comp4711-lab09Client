@@ -163,14 +163,12 @@ class Mtce extends Application {
     }
     
     // Delete this item altogether
-    function delete()
-    {
+    function delete() {
         $dto = $this->session->userdata('task');
         $task = $this->tasks->get($dto->id);
-        // var_dump ($task);
         $this->tasks->delete($task -> id);
         $this->session->unset_userdata('task');
-        // redirect('/mtce');
+        redirect('/mtce');
     }
 
 }
