@@ -2,6 +2,38 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+## - YR
+### Added
+- Fixed all, working
+
+## - YR
+### Added
+- Fixed all methods except delete
+
+## - YR
+### Added
+- Delete method
+
+## - YR
+### Added
+- Get method
+
+## - YR
+### Added
+- Store method
+
+## - YR
+### Added
+- Load method
+- Communication with backend
+
+## - YR
+### Added
+- Package Restful implemented
+
+## - YR
+### Removed
+- All items in data folder
 
 ## - YR
 ### Added
