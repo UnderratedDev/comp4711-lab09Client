@@ -147,11 +147,10 @@ class Curl {
         $this->options($options);
 
         $this->http_method('delete');
-        $this->option(CURLOPT_POSTFIELDS, http_build_query($params));
-        
-        $this->option(CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 
         // $this->option(CURLOPT_POSTFIELDS, $params);
+        $this->option(CURLOPT_POSTFIELDS, http_build_query($params));
+        $this->option(CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));    
     }
 
     public function set_cookies($params = array()) {

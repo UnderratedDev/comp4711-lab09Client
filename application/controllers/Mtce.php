@@ -167,7 +167,8 @@ class Mtce extends Application {
     {
         $dto = $this->session->userdata('task');
         $task = $this->tasks->get($dto->id);
-        $this->tasks->delete(array("id" => $task->id));
+        // var_dump ($task);
+        $this->tasks->delete($task -> id);
         $this->session->unset_userdata('task');
         // redirect('/mtce');
     }

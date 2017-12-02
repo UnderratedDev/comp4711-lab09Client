@@ -83,14 +83,11 @@ class Tasks extends XML_Model {
         }
 
         // Delete a record from the DB
-        function delete($key, $key2 = null)
-        {
+        function delete($key, $key2 = null) {
                 $this->rest->initialize(array('server' => REST_SERVER));
                 $this->rest->option(CURLOPT_PORT, REST_PORT);
-                
-                $obj = new stdClass();
-                $obj->id = $key;
-                $this->rest->delete('/job/', $obj);
+                $retrieved = $this->rest->delete('/job/', $key);
+                var_dump ($retrieved);
                 $this->load(); // because the "database" might have changed
         }
 
